@@ -1,0 +1,45 @@
+.button {
+  $variants: "green", "purple", "pink", "yellow";
+
+  --_bg: var(--c-dark);
+  --_color: var(--c-light);
+
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+
+  background-color: var(--_bg);
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  color: var(--_color);
+  text-align: center;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @each $var in $variants {
+    &.is-#{$var}:hover,
+    &.is-#{$var}:focus-visible {
+      --_bg: var(--c-#{$var});
+      --_color: var(--c-dark);
+    }
+
+    &.is-#{$var}.is-reverse {
+      --_bg: var(--c-#{$var});
+      --_color: var(--c-dark);
+
+      &:hover,
+      &:focus-visible {
+        --_bg: var(--c-dark);
+        --_color: var(--c-light);
+      }
+
+      &.dark-pattern:hover,
+      &.dark-pattern:focus-visible {
+        --_bg: var(--c-light);
+        --_color: var(--c-dark);
+      }
+    }
+  }
+}

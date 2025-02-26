@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  &:hover,
+  &:focus-visible {
+    outline-color: var(--c-dark);
+  }
+}
+
+body {
+  background-color: var(--c-light);
+  line-height: 1.5;
+  font-family: var(--f-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.has-menu-open {
+  overflow: hidden;
+
+  .skiplinks,
+  .brand,
+  .logos,
+  .js__open-nav,
+  #main-content,
+  footer {
+    display: none !important;
+
+    @media screen and (width > 64rem) {
+      display: block !important;
+    }
+  }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.container {
+  //   width: calc(100% - (var(--gutter-width) * 1.5));
+  max-width: var(--container-width);
+  padding-inline: clamp(2rem, 5vw, var(--gutter-width));
+  margin-inline: auto;
+  position: relative;
+}

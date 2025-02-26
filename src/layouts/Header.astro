@@ -1,0 +1,200 @@
+---
+
+---
+
+<script>
+  let body = document.querySelector("body");
+  const header = document.querySelector('header[role="banner"]');
+  let navbar = document.querySelector(".navbar");
+  const js__toggleNav = document.querySelector(".js__toggle-nav");
+  js__toggleNav.addEventListener("click", () => {
+    body.classList.toggle("has-menu-open");
+    navbar.classList.toggle("is-open");
+  });
+
+  header.addEventListener("keyup", (e) => {
+    if (e.key === "Escape" || e.keyCode === 27) {
+      removeAttrsMenu();
+    }
+  });
+
+  const removeAttrsMenu = () => {
+    body.classList.remove("has-menu-open");
+    navbar.classList.remove("is-open");
+    js__toggleNav.focus();
+  };
+</script>
+
+<header role="banner">
+  <div class="header-inner container">
+    <a href="/">
+      <img src="logo-semmeo--light.svg" alt="Semmeo" class="logo logo--light" />
+      <img src="logo-semmeo.svg" alt="Semmeo" class="logo logo--dark" />
+    </a>
+    <button
+      class="js__toggle-nav"
+      aria-controls="main-navbar"
+      aria-expanded="false"
+      title="Ouvrir le menu"
+    >
+      <svg class="icon open" aria-hidden="true">
+        <use xlink:href="#toggle-menu"></use>
+      </svg>
+      <svg class="icon close" aria-hidden="true">
+        <use xlink:href="#toggle-menu--close"></use>
+      </svg>
+    </button>
+    <nav
+      id="main-navbar"
+      class="navbar"
+      role="navigation"
+      aria-label="principale"
+    >
+      <ul>
+        <li><a href="#">Nos offres</a></li>
+        <li><a href="#">L'agence</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../styles/scss/reset";
+  @use "../styles/scss/typography";
+
+  body.has-menu-open {
+    header[role="banner"] {
+      background-color: var(--c-light);
+      color: var(--c-dark);
+
+      .logo--light {
+        display: none;
+      }
+      .logo--dark {
+        display: block;
+      }
+
+      svg {
+        height: 1.25rem !important;
+      }
+
+      svg.close {
+        display: block !important;
+      }
+      svg.open {
+        display: none;
+      }
+    }
+  }
+  header[role="banner"] {
+    height: 4.125rem;
+    background-color: var(--c-dark);
+    color: var(--c-light);
+
+    @media (width > 64rem) {
+      height: 6rem;
+    }
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
+
+    .logo {
+      display: flex;
+      height: 1.125rem;
+
+      @media (width > 64rem) {
+        height: 2rem;
+      }
+
+      &.logo--dark {
+        display: none;
+      }
+    }
+
+    .js__toggle-nav {
+      padding: 0.5rem;
+      border: 0;
+      background-color: transparent;
+      color: currentColor;
+
+      @media (width > 64rem) {
+        display: none;
+      }
+
+      svg {
+        width: 1.25rem;
+        height: 1.125rem;
+        color: currentColor;
+      }
+
+      .close {
+        display: none;
+      }
+    }
+  }
+
+  .navbar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 4.125rem;
+    background-color: var(--c-light);
+
+    visibility: hidden;
+
+    &.is-open {
+      visibility: visible;
+    }
+
+    @media (width > 64rem) {
+      visibility: visible;
+      flex: 1;
+      position: relative;
+      top: 0;
+      background-color: transparent;
+      color: var(--c-light);
+    }
+
+    ul {
+      @extend .container;
+      list-style-type: none;
+      padding-top: 3rem;
+      display: grid;
+      gap: 4vh;
+
+      @media (width > 64rem) {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+      }
+    }
+
+    a {
+      @extend .is-h1--like;
+      text-decoration: none;
+      display: block;
+      padding-inline: 1rem;
+      margin-inline: -1rem;
+      color: currentColor;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+
+      @media (width > 64rem) {
+        font-family: var(--f-display);
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+    }
+  }
+</style>

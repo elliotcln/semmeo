@@ -1,0 +1,47 @@
+---
+
+---
+
+<footer role="contentinfo">
+  <div class="container">
+    <nav role="navigation" aria-label="pied de page">
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Accessibilité : conforme</a></li>
+        <li><a href="#">Données personnelles</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/scss/variables";
+
+  footer[role="contentinfo"] {
+    padding-block: 1.5rem;
+
+    @media (width > 64rem) {
+      padding-block: 2rem;
+      font-size: 1.25rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li:not(:last-child)::after {
+        content: "|";
+        margin-inline: 0.25rem;
+      }
+
+      a {
+        color: var(--c-dark);
+      }
+    }
+  }
+</style>

@@ -1,11 +1,8 @@
 ---
-const { id, variant = "light", isSmall = false, classes } = Astro.props;
+const { id, variant = "light", classes, data } = Astro.props;
 ---
 
-<section
-  id={id}
-  class:list={["section", variant, classes, { "is-small": isSmall }]}
->
+<section id={id} class:list={["section", variant, classes]}>
   <div class="container">
     <slot />
   </div>
@@ -30,5 +27,12 @@ const { id, variant = "light", isSmall = false, classes } = Astro.props;
     &.yellow {
       --_bg: var(--c-yellow);
     }
+  }
+
+  .section--assets {
+    padding-bottom: 0 !important;
+  }
+  .section--clients {
+    padding-block: 3.75rem !important;
   }
 </style>

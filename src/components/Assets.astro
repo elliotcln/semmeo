@@ -1,10 +1,64 @@
 ---
 import Section from "../layouts/Section.astro";
+import AssetCard from "./AssetCard.astro";
+
+const assets = [
+  {
+    color: "yellow",
+    icon: "tech",
+    title: "Un double regard technique & éditorial",
+    desc: "On agit efficacement sur l’accessibilité et la qualité web quand on maîtrise à la fois les contenus et l’environnement dans lequel ils sont mis en œuvre.",
+  },
+  {
+    color: "pink",
+    icon: "culture",
+    title: "La culture des grandes entreprises",
+    desc: "Nous collaborons depuis 1999 avec les directions communication, digitale et SI d’organisations publiques et privées dans le cadre de projets de mise en place, refonte et accompagnement.",
+  },
+  {
+    color: "purple",
+    icon: "approach",
+    title: "Une approche pragmatique : l’amélioration continue",
+    desc: "Nous travaillons l’accessibilité et la qualité des sites jour après jour, en mobilisant tous les acteurs autour d’une démarche d’assurance qualité web.",
+  },
+  {
+    color: "green",
+    icon: "efficacity",
+    title: "Efficacité et mesure des actions",
+    desc: "Nous utilisons les meilleurs outils open source et les derniers développements de l’IA pour accélérer l’analyse et le monitoring des critères d’accessibilité et de performance web.",
+  },
+];
 ---
 
 <Section variant="dark" classes="section--assets">
   <div class="section-inner">
     <h2>Nos atouts</h2>
+    <div role="list">
+      <AssetCard
+        color={assets[0].color}
+        icon={assets[0].icon}
+        title={assets[0].title}
+        desc={assets[0].desc}
+      />
+      <AssetCard
+        color={assets[1].color}
+        icon={assets[1].icon}
+        title={assets[1].title}
+        desc={assets[1].desc}
+      />
+      <AssetCard
+        color={assets[2].color}
+        icon={assets[2].icon}
+        title={assets[2].title}
+        desc={assets[2].desc}
+      />
+      <AssetCard
+        color={assets[3].color}
+        icon={assets[3].icon}
+        title={assets[3].title}
+        desc={assets[3].desc}
+      />
+    </div>
   </div>
 </Section>
 

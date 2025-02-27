@@ -4,6 +4,7 @@
   --_bg: var(--c-dark);
   --_color: var(--c-light);
 
+  display: inline-block;
   padding: 1rem 2rem;
   border-radius: 2rem;
 
@@ -40,6 +41,29 @@
         --_bg: var(--c-light);
         --_color: var(--c-dark);
       }
+    }
+  }
+
+  &--secondary {
+    --_color: var(--c-dark);
+
+    background-color: transparent;
+    border-radius: 0;
+    display: flex;
+    color: var(--c-dark);
+    padding-inline: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

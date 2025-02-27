@@ -1,11 +1,51 @@
 ---
+import { Image } from "astro:assets";
 import Section from "../layouts/Section.astro";
+
+import LightBubble from "../../public/agency-light-bubble.png";
+import DixitLogo from "../assets/Dixxit_logo.svg";
+import goliveLogo from "../assets/golive_logo.svg";
 ---
 
 <Section id="agency" variant="green" classes="section--agency">
   <div class="section-inner">
-    <h2>L'agence</h2>
-    <a href="#" class="button is-purple">Contactez-nous</a>
+    <Image src={LightBubble} alt="" />
+    <div>
+      <h2>L'agence</h2>
+      <p class="large">
+        Semmeo est l’activité conseil d’un groupe d’agences qui œuvre depuis 25
+        ans pour donner du sens aux dispositifs digitaux des plus grandes
+        organisations :
+      </p>
+      <div role="list">
+        <div role="listitem">
+          <figure>
+            <Image src={DixitLogo} alt="" />
+            <figcaption>Agence de communication éditoriale</figcaption>
+          </figure>
+          <a href="#" class="button button--secondary">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-polygon"></use>
+            </svg>
+            <span>Visiter Dixxit</span>
+          </a>
+        </div>
+        <div role="listitem">
+          <figure>
+            <Image src={goliveLogo} alt="" />
+            <figcaption>
+              Agence de webmastering au service des grandes entreprises
+            </figcaption>
+          </figure>
+          <a href="#" class="button button--secondary">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-polygon"></use>
+            </svg>
+            <span>Visiter goLive</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </Section>
 
@@ -15,5 +55,61 @@ import Section from "../layouts/Section.astro";
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
+
+    @media (width > 64rem) {
+      flex-direction: row;
+      align-items: top;
+      gap: 4rem;
+    }
+
+    img {
+      width: 50%;
+
+      @media (width > 64rem) {
+        margin-bottom: 0;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @media (width > 64rem) {
+        align-items: flex-start;
+      }
+    }
+
+    div[role="list"] {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @media (width > 64rem) {
+        flex-direction: row;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+
+        figure {
+          display: grid;
+          gap: 1rem;
+          font-size: clamp(1.125rem, 2vw, 1.25rem);
+        }
+      }
+
+      img {
+        width: auto;
+        height: 2.5rem;
+      }
+
+      .button {
+        margin-top: auto;
+      }
+    }
   }
 </style>

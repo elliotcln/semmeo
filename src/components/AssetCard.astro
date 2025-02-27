@@ -1,0 +1,51 @@
+---
+const { color, icon, title, desc } = Astro.props;
+---
+
+<div role="listitem" class={"is-" + color}>
+  <h3 class="is-h4--like">
+    <span class="icon">
+      <svg>
+        <use xlink:href={"#icon-" + icon}></use>
+      </svg>
+    </span>
+    <span>{title}</span>
+  </h3>
+  <p>{desc}</p>
+</div>
+
+<style lang="scss">
+  $colors: "yellow", "green", "pink", "purple";
+
+  @each $c in $colors {
+    .is-#{$c} {
+      h3 {
+        color: var(--c-#{$c});
+      }
+      .icon {
+        background-color: var(--c-#{$c});
+      }
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+    color: var(--c-dark);
+
+    svg {
+      width: 1.5rem;
+    }
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+</style>

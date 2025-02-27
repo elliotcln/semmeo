@@ -51,9 +51,9 @@
       aria-label="principale"
     >
       <ul>
-        <li><a href="#">Nos offres</a></li>
-        <li><a href="#">L'agence</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#offers">Nos offres</a></li>
+        <li><a href="#agency">L'agence</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -91,6 +91,10 @@
     height: 4.125rem;
     background-color: var(--c-dark);
     color: var(--c-light);
+    position: fixed;
+    width: 100%;
+    background-color: var(--c-dark);
+    z-index: 900;
 
     @media (width > 64rem) {
       height: 6rem;

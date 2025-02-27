@@ -1,10 +1,30 @@
 ---
+import { Image } from "astro:assets";
+
 import Section from "../layouts/Section.astro";
+import AmeliLogo from "../assets/Ameli_logo.png";
+import ADEMELogo from "../assets/ADEME_logo.png";
+import RTELogo from "../assets/RTE_logo.png";
+import EDFLogo from "../assets/EDF_logo.png";
 ---
 
 <Section classes="section--clients">
   <div class="section-inner">
     <h2>Au service d’acteurs fortement mobilisés</h2>
+    <ul>
+      <li>
+        <Image
+          src={AmeliLogo}
+          height="80"
+          alt="Ameli - L'Assurance Maladie - Agir ensemble, protéger chacun"
+        />
+      </li>
+      <li><Image src={EDFLogo} height="80" alt="EDF" /></li>
+      <li><Image src={RTELogo} height="80" alt="RTE" /></li>
+      <li>
+        <Image src={ADEMELogo} height="80" alt="République Française - ADEME" />
+      </li>
+    </ul>
   </div>
 </Section>
 
@@ -14,5 +34,31 @@ import Section from "../layouts/Section.astro";
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 2vw;
+    padding: 0;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(3rem, 10vw, 4.375rem);
+
+    li {
+      flex-shrink: 1;
+      text-align: center;
+
+      img {
+        height: clamp(3.125rem, 10vw, 5rem);
+        width: auto;
+        // height: auto;
+        display: inline-block;
+      }
+    }
   }
 </style>
